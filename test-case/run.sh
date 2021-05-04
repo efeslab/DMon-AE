@@ -29,3 +29,12 @@ then
     fi
   fi
 fi
+wait
+file_name=$(head -1 selected.txt|awk '{print $1}');
+line_no=$(head -1 selected.txt|awk '{print $2}');
+echo "This application suffers significantly ($three% of all pipeline slots) due to poor data locality."
+echo "Most of the poor data locality problem occurs while executing instructions from program location at line number, $line_no of file, $file_name";
+echo "The content of the program location is:";
+echo "---------------------------------------";
+head -$line_no $file_name|tail -1;
+echo "---------------------------------------";
